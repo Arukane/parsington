@@ -38,6 +38,7 @@ import org.scijava.parse.ExpressionParser;
 import org.scijava.parse.Function;
 import org.scijava.parse.Group;
 import org.scijava.parse.Operator;
+import org.scijava.parse.SyntaxTree;
 import org.scijava.parse.Tokens;
 
 /**
@@ -58,6 +59,18 @@ public abstract class AbstractStackEvaluator extends AbstractEvaluator
 	}
 
 	// -- Evaluator methods --
+
+	@Override
+	public Object evaluate(final String expression) {
+		// Convert the expression to postfix.
+		return evaluate(getParser().parsePostfix(expression));
+	}
+
+	@Override
+	public Object evaluate(final SyntaxTree syntaxTree) {
+		// Convert the syntax tree to postfix.
+		return evaluate(syntaxTree.postfix());
+	}
 
 	@Override
 	public Object evaluate(final LinkedList<Object> queue) {
