@@ -32,7 +32,7 @@ package org.scijava.parse;
 
 import java.io.IOException;
 
-import org.scijava.parse.eval.DefaultEvaluator;
+import org.scijava.parse.eval.DefaultTreeEvaluator;
 import org.scijava.parse.eval.EvaluatorConsole;
 
 /**
@@ -50,7 +50,7 @@ public final class Main {
 	// -- Main method --
 
 	public static void main(final String[] args) throws IOException {
-		final DefaultEvaluator evaluator = new DefaultEvaluator();
+		final DefaultTreeEvaluator evaluator = new DefaultTreeEvaluator();
 		if (args.length > 0) {
 			// Evaluate the given expressions.
 			for (final String expression : args) {
